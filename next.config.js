@@ -1,9 +1,19 @@
 module.exports = {
-//   output: 'export',
+  output: 'export',
   reactStrictMode: true,
   images: {
     unoptimized: true,
     domains: ['gravatar.com']
+  },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/article': { page: '/article' },
+      '/article/[slug]': { page: '/article/[slug]' },
+      '/search': { page: '/search' }
+    }
   },
   eslint: {
     // dirs: ['components', 'layouts', 'lib', 'pages']

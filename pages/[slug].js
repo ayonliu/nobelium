@@ -15,6 +15,7 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
   const BLOG = useConfig()
   const locale = useLocale()
 
+  // console.info(BLOG);
   // TODO: It would be better to render something
   if (router.isFallback) return null
 
@@ -73,7 +74,8 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
 export async function getStaticPaths () {
   const posts = await getAllPosts({ includePages: true })
   return {
-    paths: posts.map(row => `${clientConfig.path}/${row.slug}`),
+    // paths: posts.map(row => `${clientConfig.path}/${row.slug}`),
+    paths: posts.map(row => `/${row.slug}`),
     fallback: false
   }
 }

@@ -22,7 +22,10 @@ export async function getStaticProps () {
 }
 
 export default function Blog ({ postsToShow, page, showNext }) {
-  const { title, description } = useConfig()
+  // const { title, description } = useConfig()
+  const { description } = useConfig()
+  const title = "Wordle helper and hint"
+  console.info(title)
 
   return (
     <Container title={title} description={description}>
